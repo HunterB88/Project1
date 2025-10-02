@@ -37,6 +37,21 @@ public class FractalDrawer {
     //TODO:
     // drawTriangleFractal draws a triangle fractal using recursive techniques
     public void drawTriangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level){
+        if (level <= 0 || width <= 1 || height <= 1 ){
+            return;
+        }
+
+        Triangle t = new Triangle(x, y, width, height);
+        t.setColor(c);
+        can.drawShape(t);
+        totalArea += t.calculateArea();
+
+        double newW = width / 2.0;
+        double newH = height / 2.0;
+
+        drawTriangleFractal(newW, newH, x, y, c, can, level - 1);
+        drawTriangleFractal(newW, newH, x + newW, y, c, can, level - 1);
+        drawTriangleFractal(newW, newH, x + width / 4.0, y - newH, c, can, level - 1);
     }
 
 

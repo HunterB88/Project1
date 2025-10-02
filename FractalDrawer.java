@@ -13,6 +13,8 @@ public class FractalDrawer {
     // and determines which shapes to draw a fractal by calling appropriate helper function
     // drawFractal returns the area of the fractal
     public double drawFractal(String type) {
+        Canvas canvas = new Canvas();
+
     }
 
 

@@ -13,10 +13,22 @@ public class FractalDrawer {
     // and determines which shapes to draw a fractal by calling appropriate helper function
     // drawFractal returns the area of the fractal
     public double drawFractal(String type) {
-        Canvas canvas = new Canvas();
+        Canvas canvas = new Canvas(800, 800);
+        int depth = 7;
+        totalArea = 0;
 
         if (type.equals("circle")){
-            drawCircleFractal();
+            drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
+        } 
+        else if (type.equals("triangle")){
+            drawTriangleFractal(400, 300, 400, 300, Color.RED, can, depth);
+        }
+        else if (type.equals("rectangle")){
+            drawRectangleFractal(100, 100, 600, 400, Color.PINK, can, depth);
+        }
+        else{
+            System.out.println("Unknown type, defaulting to circle");
+            drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
         }
 
     }

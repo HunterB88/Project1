@@ -15,6 +15,10 @@ public class FractalDrawer {
     public double drawFractal(String type) {
         Canvas canvas = new Canvas();
 
+        if (type.equals("circle")){
+            drawCircleFractal();
+        }
+
     }
 
 
@@ -33,6 +37,26 @@ public class FractalDrawer {
     //TODO:
     // drawRectangleFractal draws a rectangle fractal using recursive techniques
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
+    }
+
+    public Canvas(){
+        
+    }
+
+    public Canvas(int height, int width){
+
+    }
+
+    public void drawTriangle(Triangle triangleObj){
+
+    }
+
+    public void drawShape(Circle circleObj){
+
+    }
+
+    public void drawShape(Rectangle RectangleObj){
+
     }
 
 }

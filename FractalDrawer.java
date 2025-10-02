@@ -40,7 +40,7 @@ public class FractalDrawer {
     }
 
     public Canvas(){
-        
+        Canvas canvas = new Canvas(800, 800);
     }
 
     public Canvas(int height, int width){
@@ -48,14 +48,17 @@ public class FractalDrawer {
     }
 
     public void drawTriangle(Triangle triangleObj){
-
+        
     }
 
-    public void drawShape(Circle circleObj){
-
+    public void drawCircle(Circle circleObj){
+        Canvas drawing = new Canvas(800,800);
+        Circle myCircle = new Circle(0,0,100);
+        myCircle.setColor(Color.BLUE);
+        drawing.drawShape(myCircle);
     }
 
-    public void drawShape(Rectangle RectangleObj){
+    public void drawRectangle(Rectangle RectangleObj){
 
     }
 

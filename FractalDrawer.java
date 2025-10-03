@@ -51,8 +51,8 @@ public class FractalDrawer {
         double newH = height / 2.0;
 
         drawTriangleFractal(newW, newH, x + width/4.0, y - height - newH, c, can, level - 1);
-        drawTriangleFractal(newW, newH, x - newW, y - newH / 2.0, c, can, level - 1);
-        drawTriangleFractal(newW, newH, x + width, y - newH / 2.0, c, can, level - 1);
+        drawTriangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.BLACK, can, level - 1);
+        drawTriangleFractal(newW, newH, x + width, y - newH / 2.0, Color.YELLOW, can, level - 1);
     }
 
 

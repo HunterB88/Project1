@@ -41,10 +41,10 @@ public class FractalDrawer {
             return;
         }
 
-        Triangle t = new Triangle(x, y, width, height);
-        t.setColor(c);
-        can.drawShape(t);
-        totalArea += t.calculateArea();
+        Triangle triangle = new Triangle(x, y, width, height);
+        triangle.setColor(c);
+        can.drawShape(triangle);
+        totalArea += triangle.calculateArea();
 
         double newW = width / 2.0;
         double newH = height / 2.0;
@@ -58,6 +58,22 @@ public class FractalDrawer {
     // TODO:
     // drawCircleFractal draws a circle fractal using recursive techniques
     public void drawCircleFractal(double radius, double x, double y, Color c, Canvas can, int level) {
+        if (level <=0 || redius <= 1 ){
+            return;
+        }
+
+        Circle circle = new Circle(x,y,radius);
+        circle.setColor(c);
+        can.drawShape(circle);
+        totalArea += circle.calculateArea();
+
+        double newR = radius / 2.0;
+        
+
+        drawCircleFractal(newR, x, y, c, can, level - 1);
+        drawCircleFractal(newR, x + newR, y, c, can, level - 1);
+        drawCircleFractal(newR, x, y, c, can, level - 1);
+
     }
 
 

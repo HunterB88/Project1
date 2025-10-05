@@ -59,7 +59,7 @@ public class FractalDrawer {
     // TODO:
     // drawCircleFractal draws a circle fractal using recursive techniques
     public void drawCircleFractal(double radius, double x, double y, Color c, Canvas can, int level) {
-        if (level <=0 || redius <= 1 ){
+        if (level <=0 || radius <= 1 ){
             return;
         }
 
@@ -81,6 +81,21 @@ public class FractalDrawer {
     //TODO:
     // drawRectangleFractal draws a rectangle fractal using recursive techniques
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
+        if (level <= 0 || width <= 1 || heigth <= 1){
+            return;
+        }
+
+        Rectangle rectangle = new Rectangle(x, y, width, height);
+        rectangle.setColor(c);
+        can.drawShape(rectangle);
+        totalArea += rectangle.calculateArea();
+
+        double newW = width / 2.0;
+        double newH = height / 2.0;
+
+        drawRectangleFractal(newW, newH, x + width/4.0, y - height - newH, c, can, level - 1);
+        drawRectangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.BLACK, can, level - 1);
+        drawRectangleFractal(newW, newH, x + width, y - newH / 2.0, Color.YELLOW, can, level - 1);
     }
 
     public Canvas(){

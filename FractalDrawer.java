@@ -3,7 +3,7 @@ package CSCI1933P1;
 import java.awt.Color;
 
 public class FractalDrawer {
-    private double totalArea=0;  // member variable for tracking the total area
+    private double totalArea=0;// member variable for tracking the total area
 
     public FractalDrawer() {}  // contructor
 
@@ -21,7 +21,7 @@ public class FractalDrawer {
             drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
         } 
         else if (type.equals("triangle")){
-            drawTriangleFractal(200, 150, 300, 475, Color.RED, can, depth);
+            drawTriangleFractal(200, 150, 300, 475, Color.BLUE, can, depth);
         }
         else if (type.equals("rectangle")){
             drawRectangleFractal(100, 100, 600, 400, Color.PINK, can, depth);
@@ -50,16 +50,16 @@ public class FractalDrawer {
         double newW = width / 2.0;
         double newH = height / 2.0;
 
-        drawTriangleFractal(newW, newH, x + width/4.0, y - height - newH, c, can, level - 1);
-        drawTriangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.BLACK, can, level - 1);
-        drawTriangleFractal(newW, newH, x + width, y - newH / 2.0, Color.YELLOW, can, level - 1);
+        drawTriangleFractal(newW, newH, x + width/4.0, y - height - newH, Color.BLUE, can, level - 1);
+        drawTriangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.GREEN, can, level - 1);
+        drawTriangleFractal(newW, newH, x + width, y - newH / 2.0, Color.PINK, can, level - 1);
     }
 
 
     // TODO:
     // drawCircleFractal draws a circle fractal using recursive techniques
     public void drawCircleFractal(double radius, double x, double y, Color c, Canvas can, int level) {
-        if (level <=0 || redius <= 1 ){
+        if (level <=0 || radius <= 1 ){
             return;
         }
 
@@ -68,12 +68,14 @@ public class FractalDrawer {
         can.drawShape(circle);
         totalArea += circle.calculateArea();
 
-        double newR = radius / 2.0;
+        double newR = radius * 0.5;
+        double d = radius;
         
 
-        drawCircleFractal(newR, x, y, c, can, level - 1);
-        drawCircleFractal(newR, x + newR, y, c, can, level - 1);
-        drawCircleFractal(newR, x, y, c, can, level - 1);
+        drawCircleFractal(newR, x + d, y, Color.MAGENTA, can, level - 1); // right
+        drawCircleFractal(newR, x - d, y, Color.YELLOW, can, level - 1);  // left
+        drawCircleFractal(newR, x, y + d, Color.CYAN, can, level - 1);    // down
+        drawCircleFractal(newR, x, y - d, Color.PINK, can, level - 1);
 
     }
 

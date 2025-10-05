@@ -107,7 +107,10 @@ public class FractalDrawer {
     }
 
     public void drawTriangle(Triangle triangleObj){
-        
+        Canvas drawing = new Canvas(800,800);
+        Triangle myTriangle = new Triangle(0,0, 100, 100);
+        myTriangle.setColor(Color.BLUE);
+        drawing.drawShape(myTriangle);
     }
 
     public void drawCircle(Circle circleObj){
@@ -118,7 +121,10 @@ public class FractalDrawer {
     }
 
     public void drawRectangle(Rectangle RectangleObj){
-
+        Canvas drawing = new Canvas(800,800);
+        Rectangle myRectangle = new Rectangle(0,0, 100, 100);
+        myRectangle.setColor(Color.BLUE);
+        drawing.drawShape(myRectangle);
     }
 
 }

@@ -21,7 +21,7 @@ public class FractalDrawer {
             drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
         } 
         else if (type.equals("triangle")){
-            drawTriangleFractal(200, 150, 300, 475, Color.BLUE, can, depth);
+            drawTriangleFractal(600, 450, 100, 475, Color.BLUE, can, depth);
         }
         else if (type.equals("rectangle")){
             drawRectangleFractal(100, 100, 600, 400, Color.PINK, can, depth);
@@ -50,9 +50,9 @@ public class FractalDrawer {
         double newW = width / 2.0;
         double newH = height / 2.0;
 
-        drawTriangleFractal(newW, newH, x + width/4.0, y - height - newH, Color.BLUE, can, level - 1);
-        drawTriangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.GREEN, can, level - 1);
-        drawTriangleFractal(newW, newH, x + width, y - newH / 2.0, Color.PINK, can, level - 1);
+        drawTriangleFractal(newW, newH, x, y, Color.BLUE, can, level - 1);
+        drawTriangleFractal(newW, newH, x + newW, y, Color.GREEN, can, level - 1);
+        drawTriangleFractal(newW, newH, x + newW / 2, y - newH, Color.PINK, can, level - 1);
     }
 
 

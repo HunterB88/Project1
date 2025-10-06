@@ -27,7 +27,7 @@ public class FractalDrawer {
             drawTriangleFractal(600, 450, cx - 300, cy + 75, Color.BLUE, can, depth);
         }
         else if (type.equals("rectangle")){
-            drawRectangleFractal(480, 480, cx, cy, Color.PINK, can, depth);
+            drawRectangleFractal(340, 340, cx - 170, cy - 170, Color.PINK, can, depth);
         }
         else{
             System.out.println("Unknown type, defaulting to circle");
@@ -87,19 +87,26 @@ public class FractalDrawer {
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
         if (level <= 0 || width <= 1 || height <= 1) return;
 
-        Rectangle rectangle = new Rectangle(x, y, width, height);
-        rectangle.setColor(c);
-        can.drawShape(rectangle);
-        totalArea += rectangle.calculateArea();
+        // force square for a symmetric pattern
+        double s = Math.min(width, height);
+
+        Rectangle r = new Rectangle(x, y, s, s);   // top-left API
+        r.setColor(c);
+        can.drawShape(r);
+        totalArea += r.calculateArea();
 
         if (level == 1) return;
 
-        double newW = width / 2.0;
-        double newH = height / 2.0;
+        double child = s / 2.0;        // child side
+        double half  = child / 2.0;    // offset to put child center at each parent corner
 
-        drawRectangleFractal(newW, newH, x - newW, y - newH, c, can, level - 1); // TL
-        drawRectangleFractal(newW, newH, x + newW, y - newH, c, can, level - 1); // TR
-        drawRectangleFractal(newW, newH, x - newW, y + newH, c, can, level - 1); // BL
-        drawRectangleFractal(newW, newH, x + newW, y + newH, c, can, level - 1); // BR
+        // TL
+        drawRectangleFractal(child, child, x - half,     y - half,     Color.MAGENTA, can, level - 1);
+        // TR
+        drawRectangleFractal(child, child, x + s - half, y - half,     Color.ORANGE, can, level - 1);
+        // BL
+        drawRectangleFractal(child, child, x - half,     y + s - half, Color.BLUE, can, level - 1);
+        // BR
+        drawRectangleFractal(child, child, x + s - half, y + s - half, Color.GREEN, can, level - 1);
     }
 }

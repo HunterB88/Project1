@@ -27,7 +27,7 @@ public class FractalDrawer {
             drawTriangleFractal(600, 450, cx - 300, cy + 150, Color.YELLOW, can, depth);
         }
         else if (type.equals("rectangle")){
-            drawRectangleFractal(340, 340, cx - 170, cy - 170, Color.PINK, can, depth);
+            drawRectangleFractal(340, 340, cx - 170, cy - 170, Color.MAGENTA, can, depth);
         }
         else{
             System.out.println("Unknown type, defaulting to circle");
@@ -87,19 +87,19 @@ public class FractalDrawer {
 
         double s = Math.min(width, height);
 
-        Rectangle r = new Rectangle(x, y, s, s);
-        r.setColor(c);
-        can.drawShape(r);
-        totalArea += r.calculateArea();
+        Rectangle rectangle = new Rectangle(x, y, s, s);
+        rectangle.setColor(c);
+        can.drawShape(rectangle);
+        totalArea += rectangle.calculateArea();
 
         if (level == 1) return;
 
-        double child = s / 2.0;
-        double half  = child / 2.0;
+        double base = s / 2.0;
+        double half  = base / 2.0;
 
-        drawRectangleFractal(child, child, x - half, y - half, Color.MAGENTA, can, level - 1);
-        drawRectangleFractal(child, child, x + s - half, y - half, Color.ORANGE, can, level - 1);
-        drawRectangleFractal(child, child, x - half, y + s - half, Color.BLUE, can, level - 1);
-        drawRectangleFractal(child, child, x + s - half, y + s - half, Color.GREEN, can, level - 1);
+        drawRectangleFractal(base, base, x - half, y - half, Color.MAGENTA, can, level - 1);
+        drawRectangleFractal(base, base, x + s - half, y - half, Color.black, can, level - 1);
+        drawRectangleFractal(base, base, x - half, y + s - half, Color.BLUE, can, level - 1);
+        drawRectangleFractal(base, base, x + s - half, y + s - half, Color.CYAN, can, level - 1);
     }
 }

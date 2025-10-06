@@ -21,17 +21,17 @@ public class FractalDrawer {
         double cy = can.getHeight() / 2.0;
 
         if (type.equals("circle")){
-            drawCircleFractal(200, cx, cy, Color.BLUE, can, depth);
+            drawCircleFractal(200, cx, cy, Color.CYAN, can, depth);
         }
         else if (type.equals("triangle")){
-            drawTriangleFractal(600, 450, cx - 300, cy + 75, Color.BLUE, can, depth);
+            drawTriangleFractal(600, 450, cx - 300, cy + 150, Color.YELLOW, can, depth);
         }
         else if (type.equals("rectangle")){
             drawRectangleFractal(340, 340, cx - 170, cy - 170, Color.PINK, can, depth);
         }
         else{
             System.out.println("Unknown type, defaulting to circle");
-            drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
+            drawCircleFractal(200, 400, 400, Color.CYAN, can, depth);
         }
         return totalArea;
     }
@@ -52,9 +52,9 @@ public class FractalDrawer {
         double newW = width / 2.0;
         double newH = height / 2.0;
 
-        drawTriangleFractal(newW, newH, x, y, Color.BLUE, can, level - 1);
-        drawTriangleFractal(newW, newH, x + newW, y, Color.GREEN, can, level - 1);
-        drawTriangleFractal(newW, newH, x + newW / 2, y - newH, Color.PINK, can, level - 1);
+        drawTriangleFractal(newW, newH, x, y, Color.YELLOW, can, level - 1);
+        drawTriangleFractal(newW, newH, x + newW, y, Color.RED, can, level - 1);
+        drawTriangleFractal(newW, newH, x + newW / 2, y - newH, Color.orange, can, level - 1);
     }
 
 

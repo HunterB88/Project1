@@ -99,34 +99,4 @@ public class FractalDrawer {
         drawRectangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.BLACK, can, level - 1);
         drawRectangleFractal(newW, newH, x + width, y - newH / 2.0, Color.YELLOW, can, level - 1);
     }
-
-    public Canvas(){
-        Canvas canvas = new Canvas(800, 800);
-    }
-
-    public Canvas(int height, int width){
-
-    }
-
-    public void drawTriangle(Triangle triangleObj){
-        Canvas drawing = new Canvas(800,800);
-        Triangle myTriangle = new Triangle(0,0, 100, 100);
-        myTriangle.setColor(Color.BLUE);
-        drawing.drawShape(myTriangle);
-    }
-
-    public void drawCircle(Circle circleObj){
-        Canvas drawing = new Canvas(800,800);
-        Circle myCircle = new Circle(0,0,100);
-        myCircle.setColor(Color.BLUE);
-        drawing.drawShape(myCircle);
-    }
-
-    public void drawRectangle(Rectangle RectangleObj){
-        Canvas drawing = new Canvas(800,800);
-        Rectangle myRectangle = new Rectangle(0,0, 100, 100);
-        myRectangle.setColor(Color.BLUE);
-        drawing.drawShape(myRectangle);
-    }
-
 }

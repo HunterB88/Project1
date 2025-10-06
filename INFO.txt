@@ -1,0 +1,35 @@
+Hunter Bishop bisho352
+Aaron Barke barke345
+
+Aaron Contributions
+
+  -
+  -
+
+Hunter Contributions
+
+  -
+  -
+
+How to compile and run program
+
+  -Unzip the file
+
+  -Navigate to file in terminal
+
+  -Type javac filename
+
+  -Type java filename
+
+  -It will ask for you to chose a shape
+
+  -Enter shape and hit enter
+
+Bugs and Defects
+
+  -Sometimes does not complete the drawing fully
+
+“I certify that the information contained in this INFO file is complete and accurate. I have both read and followed the course policies in the ‘Academic Integrity - Course Policy’ section of the course syllabus.”
+
+-Hunter Bishop
+-Aaron Barke

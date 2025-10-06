@@ -33,7 +33,6 @@ public class FractalDrawer {
             System.out.println("Unknown type, defaulting to circle");
             drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
         }
-
         return totalArea;
     }
 
@@ -78,7 +77,6 @@ public class FractalDrawer {
         drawCircleFractal(newR, x + off, y, Color.YELLOW,  can, level - 1);
         drawCircleFractal(newR, x, y - off, Color.CYAN,    can, level - 1);
         drawCircleFractal(newR, x, y + off, Color.PINK,    can, level - 1);
-
     }
 
 
@@ -87,26 +85,21 @@ public class FractalDrawer {
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
         if (level <= 0 || width <= 1 || height <= 1) return;
 
-        // force square for a symmetric pattern
         double s = Math.min(width, height);
 
-        Rectangle r = new Rectangle(x, y, s, s);   // top-left API
+        Rectangle r = new Rectangle(x, y, s, s);
         r.setColor(c);
         can.drawShape(r);
         totalArea += r.calculateArea();
 
         if (level == 1) return;
 
-        double child = s / 2.0;        // child side
-        double half  = child / 2.0;    // offset to put child center at each parent corner
+        double child = s / 2.0;
+        double half  = child / 2.0;
 
-        // TL
-        drawRectangleFractal(child, child, x - half,     y - half,     Color.MAGENTA, can, level - 1);
-        // TR
-        drawRectangleFractal(child, child, x + s - half, y - half,     Color.ORANGE, can, level - 1);
-        // BL
-        drawRectangleFractal(child, child, x - half,     y + s - half, Color.BLUE, can, level - 1);
-        // BR
+        drawRectangleFractal(child, child, x - half, y - half, Color.MAGENTA, can, level - 1);
+        drawRectangleFractal(child, child, x + s - half, y - half, Color.ORANGE, can, level - 1);
+        drawRectangleFractal(child, child, x - half, y + s - half, Color.BLUE, can, level - 1);
         drawRectangleFractal(child, child, x + s - half, y + s - half, Color.GREEN, can, level - 1);
     }
 }

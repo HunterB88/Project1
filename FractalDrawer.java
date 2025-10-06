@@ -17,14 +17,17 @@ public class FractalDrawer {
         int depth = 7;
         totalArea = 0;
 
+        double cx = can.getWidth()  / 2.0;
+        double cy = can.getHeight() / 2.0;
+
         if (type.equals("circle")){
-            drawCircleFractal(200, 400, 400, Color.BLUE, can, depth);
-        } 
+            drawCircleFractal(200, cx, cy, Color.BLUE, can, depth);
+        }
         else if (type.equals("triangle")){
-            drawTriangleFractal(600, 450, 100, 475, Color.BLUE, can, depth);
+            drawTriangleFractal(600, 450, cx - 300, cy + 75, Color.BLUE, can, depth);
         }
         else if (type.equals("rectangle")){
-            drawRectangleFractal(200, 100, 300, 350, Color.PINK, can, depth);
+            drawRectangleFractal(480, 480, cx, cy, Color.PINK, can, depth);
         }
         else{
             System.out.println("Unknown type, defaulting to circle");
@@ -38,14 +41,14 @@ public class FractalDrawer {
     //TODO:
     // drawTriangleFractal draws a triangle fractal using recursive techniques
     public void drawTriangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level){
-        if (level <= 0 || width <= 1 || height <= 1 ){
-            return;
-        }
+        if (level <= 0 || width <= 1 || height <= 1 ) return;
 
         Triangle triangle = new Triangle(x, y, width, height);
         triangle.setColor(c);
         can.drawShape(triangle);
         totalArea += triangle.calculateArea();
+
+        if (level == 1) return;
 
         double newW = width / 2.0;
         double newH = height / 2.0;
@@ -59,23 +62,22 @@ public class FractalDrawer {
     // TODO:
     // drawCircleFractal draws a circle fractal using recursive techniques
     public void drawCircleFractal(double radius, double x, double y, Color c, Canvas can, int level) {
-        if (level <=0 || radius <= 1 ){
-            return;
-        }
+        if (level <= 0 || radius <= 1) return;
 
         Circle circle = new Circle(x,y,radius);
         circle.setColor(c);
         can.drawShape(circle);
         totalArea += circle.calculateArea();
 
-        double newR = radius * 0.5;
-        double d = radius;
-        
+        if (level == 1) return;
 
-        drawCircleFractal(newR, x + d, y, Color.MAGENTA, can, level - 1); // right
-        drawCircleFractal(newR, x - d, y, Color.YELLOW, can, level - 1);  // left
-        drawCircleFractal(newR, x, y + d, Color.CYAN, can, level - 1);    // down
-        drawCircleFractal(newR, x, y - d, Color.PINK, can, level - 1);
+        double newR = radius / 2.0;
+        double off  = newR;
+
+        drawCircleFractal(newR, x - off, y, Color.MAGENTA, can, level - 1);
+        drawCircleFractal(newR, x + off, y, Color.YELLOW,  can, level - 1);
+        drawCircleFractal(newR, x, y - off, Color.CYAN,    can, level - 1);
+        drawCircleFractal(newR, x, y + off, Color.PINK,    can, level - 1);
 
     }
 
@@ -83,21 +85,21 @@ public class FractalDrawer {
     //TODO:
     // drawRectangleFractal draws a rectangle fractal using recursive techniques
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
-        if (level <= 0 || width <= 1 || height <= 1){
-            return;
-        }
+        if (level <= 0 || width <= 1 || height <= 1) return;
 
         Rectangle rectangle = new Rectangle(x, y, width, height);
         rectangle.setColor(c);
         can.drawShape(rectangle);
         totalArea += rectangle.calculateArea();
 
+        if (level == 1) return;
+
         double newW = width / 2.0;
         double newH = height / 2.0;
 
-        drawRectangleFractal(newW, newH, x - newW, y - newH, Color.BLACK,  can, level - 1);  // top-left
-        drawRectangleFractal(newW, newH, x + newW, y - newH, Color.YELLOW, can, level - 1);  // top-right
-        drawRectangleFractal(newW, newH, x - newW, y + newH, Color.PINK,   can, level - 1);  // bottom-left
-        drawRectangleFractal(newW, newH, x + newW, y + newH, Color.GRAY,   can, level - 1);
+        drawRectangleFractal(newW, newH, x - newW, y - newH, c, can, level - 1); // TL
+        drawRectangleFractal(newW, newH, x + newW, y - newH, c, can, level - 1); // TR
+        drawRectangleFractal(newW, newH, x - newW, y + newH, c, can, level - 1); // BL
+        drawRectangleFractal(newW, newH, x + newW, y + newH, c, can, level - 1); // BR
     }
 }

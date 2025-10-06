@@ -24,7 +24,7 @@ public class FractalDrawer {
             drawTriangleFractal(600, 450, 100, 475, Color.BLUE, can, depth);
         }
         else if (type.equals("rectangle")){
-            drawRectangleFractal(100, 100, 600, 400, Color.PINK, can, depth);
+            drawRectangleFractal(200, 100, 300, 350, Color.PINK, can, depth);
         }
         else{
             System.out.println("Unknown type, defaulting to circle");
@@ -83,7 +83,7 @@ public class FractalDrawer {
     //TODO:
     // drawRectangleFractal draws a rectangle fractal using recursive techniques
     public void drawRectangleFractal(double width, double height, double x, double y, Color c, Canvas can, int level) {
-        if (level <= 0 || width <= 1 || heigth <= 1){
+        if (level <= 0 || width <= 1 || height <= 1){
             return;
         }
 
@@ -95,8 +95,9 @@ public class FractalDrawer {
         double newW = width / 2.0;
         double newH = height / 2.0;
 
-        drawRectangleFractal(newW, newH, x + width/4.0, y - height - newH, c, can, level - 1);
-        drawRectangleFractal(newW, newH, x - newW, y - newH / 2.0, Color.BLACK, can, level - 1);
-        drawRectangleFractal(newW, newH, x + width, y - newH / 2.0, Color.YELLOW, can, level - 1);
+        drawRectangleFractal(newW, newH, x - newW, y - newH, Color.BLACK,  can, level - 1);  // top-left
+        drawRectangleFractal(newW, newH, x + newW, y - newH, Color.YELLOW, can, level - 1);  // top-right
+        drawRectangleFractal(newW, newH, x - newW, y + newH, Color.PINK,   can, level - 1);  // bottom-left
+        drawRectangleFractal(newW, newH, x + newW, y + newH, Color.GRAY,   can, level - 1);
     }
 }

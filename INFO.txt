@@ -14,8 +14,9 @@ Aaron Contributions
 
 Hunter Contributions
 
-  -
-  -
+  -created and implemented Rectangle.java
+  -helped fix and configure Circle.java
+  -set up shape object in FractalProgram.java
 
 How to compile and run program
 

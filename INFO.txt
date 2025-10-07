@@ -15,8 +15,12 @@ Aaron Contributions
 Hunter Contributions
 
   -created and implemented Rectangle.java
-  -helped fix and configure Circle.java
+  -helped configure Circle.java
   -set up shape object in FractalProgram.java
+  -In FractalDrawer helped create drawTriangleFractal and created drawCircleFractal
+   and drawRectangleFractal
+  -In FractalDrawer I centered all the fractals by adding the cx and cy and offsetting 
+  by the size of the shape
 
 How to compile and run program
 

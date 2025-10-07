@@ -13,17 +13,20 @@ Hunter Contributions
 
 How to compile and run program
 
-  -Unzip the file
+  1) Unzip the project.
 
-  -Navigate to file in terminal
+  2) Open a terminal and cd into the unzipped folder (the one that contains the CSCI1933P1 directory).
+     cd <path-to-unzipped-folder>
 
-  -Type javac filename
+  3) Compile all sources:
+     javac CSCI1933P1/*.java
 
-  -Type java filename
+  4) Run the program (package-qualified main class):
+     java CSCI1933P1.FractalProgram
 
-  -It will ask for you to chose a shape
+  5) When prompted, type a shape name (circle / triangle / rectangle) and press Enter.
 
-  -Enter shape and hit enter
+
 
 Bugs and Defects
 

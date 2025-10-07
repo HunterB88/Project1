@@ -3,8 +3,14 @@ Aaron Barke barke345
 
 Aaron Contributions
 
-  -
-  -
+  - created and implemeted Circle.java
+  - created and implemeted Triangle.java
+  - set up the user input in FractalProgram.java
+  - set up print area FractalProgram
+  - In FractalDrawer helped create drawTriangleFractal and contributed to drawCircleFractal 
+  by adjusting colors and other placement settings
+  - In FractalDrawer I implemented the drawFractal method specifically the if statement that 
+  takes in the users input that then decides which shape fractal to draw.
 
 Hunter Contributions
 

@@ -15,6 +15,9 @@ public class FractalProgram {
         String userShape = s.nextLine();
         
         test.drawFractal(userShape);
+
+        double total = test.drawFractal(userShape); // capture returned total area
+        System.out.println("Total area: " + total);
         
         s.close();
     }
